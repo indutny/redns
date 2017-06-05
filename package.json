@@ -1,0 +1,29 @@
+{
+  "name": "redns",
+  "version": "1.0.0",
+  "description": "Fast and configurable DNS lookup cache",
+  "main": "lib/redns.js",
+  "scripts": {
+    "lint": "eslint lib/*.js test/*.js",
+    "test": "mocha --reporter=spec test/*-test.js && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:indutny/redns"
+  },
+  "keywords": [
+    "redns",
+    "dns",
+    "cache"
+  ],
+  "author": "Fedor Indutny <fedor@indutny.com> (http://darksi.de/)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "debug": "^2.6.8"
+  }
+}
