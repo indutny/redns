@@ -5,6 +5,7 @@ A drop-in replacement for `dns.lookup` that can:
 * Cache records with TTL
 * Rotate records
 * Perform retries of dns query with incremental timeouts
+* Merge parallel queries into one
 
 ## Usage
 
