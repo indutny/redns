@@ -2,6 +2,7 @@
 /* global describe it */
 
 const assert = require('assert');
+const async = require('async');
 const net = require('net');
 
 const ReDNS = require('../');
@@ -59,6 +60,23 @@ describe('redns', () => {
 
       assert.ok(net.isIPv4(result));
       assert.equal(family, 4);
+      cb();
+    });
+  });
+
+  it('should merge parallel queries', (cb) => {
+    const r = new ReDNS();
+
+    async.parallel([
+      cb => r.lookup('github.com', 4, (err, addr) => cb(err, addr)),
+      cb => r.lookup('github.com', 4, (err, addr) => cb(err, addr))
+    ], (err, results) => {
+      assert.ok(!err);
+      assert.equal(results.length, 2);
+      assert.notEqual(results[0], results[1]);
+
+      assert.ok(net.isIPv4(results[0]));
+      assert.ok(net.isIPv4(results[1]));
       cb();
     });
   });
