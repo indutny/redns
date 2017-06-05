@@ -25,7 +25,10 @@ const r = new ReDNS({
   timeout: 100,
 
   // If `true` - double timeout on every retry
-  incrementalTimeout: true
+  incrementalTimeout: true,
+
+  // Maximum TTL for a fetched DNS record
+  maxTTL: Infinity
 });
 
 // API is absolutely the same as with `dns.lookup`
