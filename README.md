@@ -29,7 +29,7 @@ const r = new ReDNS({
   // If `true` - double timeout on every retry
   incrementalTimeout: true,
 
-  // Maximum TTL for a fetched DNS record
+  // Maximum TTL for a fetched DNS record in seconds
   maxTTL: Infinity
 });
 
