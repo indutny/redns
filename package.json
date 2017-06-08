@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "async": "^2.4.1",
+    "compare-versions": "^3.0.1",
     "debug": "^2.6.8"
   }
 }
