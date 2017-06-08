@@ -1,4 +1,5 @@
 # ReDNS
+[![Build Status](https://travis-ci.org/indutny/redns.svg?branch=master)](http://travis-ci.org/indutny/redns)
 
 A drop-in replacement for `dns.lookup` that can:
 
