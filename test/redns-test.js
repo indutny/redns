@@ -80,4 +80,18 @@ describe('redns', () => {
       cb();
     });
   });
+
+  it('should add semi-permanent fallback on no A records', (cb) => {
+    const r = new ReDNS();
+
+    const host = 'noa.darksi.de';
+
+    async.parallel([
+      cb => r.lookup(host, 4, (err, addr) => cb(err, addr)),
+      cb => r.lookup(host, 4, (err, addr) => cb(err, addr))
+    ], (err) => {
+      assert.ok(err);
+      cb();
+    });
+  });
 });
