@@ -1,6 +1,6 @@
 {
   "name": "redns",
-  "version": "1.0.0-alpha3",
+  "version": "1.0.0-alpha4",
   "description": "Fast and configurable DNS lookup cache",
   "main": "lib/redns.js",
   "scripts": {
