@@ -8,15 +8,15 @@ const net = require('net');
 const ReDNS = require('../');
 
 describe('redns', () => {
-  it('should lookup github.com', (cb) => {
+  it('should lookup microsoft.com', (cb) => {
     const r = new ReDNS();
 
-    r.lookup('github.com', (err, first, family) => {
+    r.lookup('microsoft.com', (err, first, family) => {
       assert.ok(!err);
       assert.equal(family, 4);
       assert.ok(net.isIPv4(first));
 
-      r.lookup('github.com', (err, second, family) => {
+      r.lookup('microsoft.com', (err, second, family) => {
         assert.ok(!err);
         assert.equal(family, 4);
         assert.ok(net.isIPv4(second));
@@ -30,7 +30,7 @@ describe('redns', () => {
   it('should respect `all: true` option', (cb) => {
     const r = new ReDNS();
 
-    r.lookup('www.google.com', { all: true }, (err, results) => {
+    r.lookup('www.microsoft.com', { all: true }, (err, results) => {
       assert.ok(!err);
 
       assert(results.length > 0);
@@ -55,7 +55,7 @@ describe('redns', () => {
   it('should respect `family` option', (cb) => {
     const r = new ReDNS();
 
-    r.lookup('www.google.com', 4, (err, result, family) => {
+    r.lookup('www.microsoft.com', 4, (err, result, family) => {
       assert.ok(!err);
 
       assert.ok(net.isIPv4(result));
@@ -68,8 +68,8 @@ describe('redns', () => {
     const r = new ReDNS();
 
     async.parallel([
-      cb => r.lookup('github.com', 4, (err, addr) => cb(err, addr)),
-      cb => r.lookup('github.com', 4, (err, addr) => cb(err, addr))
+      cb => r.lookup('microsoft.com', 4, (err, addr) => cb(err, addr)),
+      cb => r.lookup('microsoft.com', 4, (err, addr) => cb(err, addr)),
     ], (err, results) => {
       assert.ok(!err);
       assert.equal(results.length, 2);
@@ -88,7 +88,7 @@ describe('redns', () => {
 
     async.parallel([
       cb => r.lookup(host, 4, (err, addr) => cb(err, addr)),
-      cb => r.lookup(host, 4, (err, addr) => cb(err, addr))
+      cb => r.lookup(host, 4, (err, addr) => cb(err, addr)),
     ], (err) => {
       assert.ok(err);
       cb();

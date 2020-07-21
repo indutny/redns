@@ -19,12 +19,12 @@
   "author": "Fedor Indutny <fedor@indutny.com> (http://darksi.de/)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "mocha": "^3.4.2"
+    "eslint": "^7.5.0",
+    "mocha": "^8.0.1"
   },
   "dependencies": {
-    "async": "^2.4.1",
-    "compare-versions": "^3.0.1",
-    "debug": "^2.6.8"
+    "async": "^3.2.0",
+    "compare-versions": "^3.6.0",
+    "debug": "^4.1.1"
   }
 }
